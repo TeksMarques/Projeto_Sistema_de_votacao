@@ -104,19 +104,13 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
       return;
     }
 
-    StringBuilder output = new StringBuilder();
-    output.append("Resultado da eleição:\n");
+    System.out.println("Resultado da eleição:");
     for (PessoaCandidata candidato : pessoasCandidatas) {
       int votos = candidato.getVotos();
       double percentual = (votos * 100.0) / cpfsComputados.size();
-      output.append("Nome: ").append(candidato.getNome()).append(" - ").append(votos)
-          .append(" votos (").append(Math.round(percentual)).append("%)\n");
+      System.out.println("Nome: " + candidato.getNome() + " - " + votos + " votos ( "
+          + Math.round(percentual) + "%) ");
     }
-    output.append("Total de votos: ").append(cpfsComputados.size());
-
-
-    String expectedOutput = output.toString().trim();
-
-    System.out.println(expectedOutput);
+    System.out.println("Total de votos: " + cpfsComputados.size());
   }
 }
